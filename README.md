@@ -33,3 +33,10 @@ Control DNS for `registry.k8s.io` and `no_proxy`:
 ## Deploy
 
 Private registry I suppose, pull-through-proxy in `/etc/docker/daemon.json` has no effect and rightly so as `docker` in not installed.
+
+## RKE2
+
+```
+export ETCDCTL_API=3
+/var/lib/rancher/rke2/server/tls/etcd# etcdctl --cert=client.crt --key=client.key --cacert=server-ca.crt --endpoints=https://127.0.0.1:2379 member list
+```
